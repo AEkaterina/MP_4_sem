@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Auxil.h" />
     <ClInclude Include="Combi5.h" />
     <ClInclude Include="knapsack.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Auxil.cpp" />
     <ClCompile Include="Combi5.cpp" />
     <ClCompile Include="Knapsack.cpp" />
     <ClCompile Include="task5.cpp" />

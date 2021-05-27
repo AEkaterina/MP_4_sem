@@ -1,6 +1,9 @@
 #include <iostream>
 #include "Combi3.h"
 #include <iomanip> 
+
+//генератор перестановок  n!
+
 int main()
 {
     setlocale(LC_ALL, "rus");

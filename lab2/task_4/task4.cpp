@@ -3,6 +3,9 @@
 #include "Combi4.h"
 #define N (sizeof(AA)/2)
 #define M 3
+
+//генератор размещений		n!/(n-m)!
+
 int main()
 {
 	setlocale(LC_ALL, "rus");

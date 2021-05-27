@@ -2,7 +2,7 @@
 #include <algorithm>
 namespace combi
 {
-    xcombination::xcombination(short n, short m)
+    xcombination::xcombination(short n, short m)    // генератор  сочетаний (эвристика)
     {
         this->n = n;
         this->m = m;
@@ -16,7 +16,7 @@ namespace combi
         this->sset[m] = this->n;
         this->sset[m + 1] = 0;
     };
-    short xcombination::getfirst()
+    short xcombination::getfirst()      // сформировать первый массив индексов 
     {
         return (this->n >= this->m) ? this->m : -1;
     };
@@ -39,14 +39,14 @@ namespace combi
         }
         return rc;
     };
-    short xcombination::ntx(short i)
+    short xcombination::ntx(short i)        // получить i-й элемент массива индексов  
     {
         return this->sset[i];
     };
 
     unsigned __int64 fact(unsigned __int64 x) { return(x == 0) ? 1 : (x * fact(x - 1)); };
 
-    unsigned __int64 xcombination::count() const
+    unsigned __int64 xcombination::count() const        // вычислить количество сочетаний
     {
         return (this->n >= this->m) ?
             fact(this->n) / (fact(this->n - this->m) * fact(this->m)) : 0;

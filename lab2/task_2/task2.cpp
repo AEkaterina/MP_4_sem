@@ -1,5 +1,8 @@
 #include <iostream>
 #include "Combi2.h"
+
+//генератор сочетаний           n!/(m!(n-m)!)       n - m + i,
+
 int main()
 {
     setlocale(LC_ALL, "rus");

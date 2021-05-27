@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f7605533-f727-4ce4-a855-80f3915b4fce}</ProjectGuid>
-    <RootNamespace>task6</RootNamespace>
+    <ProjectGuid>{7e8eadf4-d033-42b5-aecb-d3beb1805f2f}</ProjectGuid>
+    <RootNamespace>lab3</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,13 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Combi6.h" />
-    <ClInclude Include="Knapsack.h" />
+    <ClInclude Include="Combi.h" />
+    <ClInclude Include="Salesman.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Combi6.cpp" />
-    <ClCompile Include="Knapsack.cpp" />
-    <ClCompile Include="task6.cpp" />
+    <ClCompile Include="Combi.cpp" />
+    <ClCompile Include="lab3.cpp" />
+    <ClCompile Include="Salesman.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

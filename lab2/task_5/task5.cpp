@@ -1,37 +1,44 @@
 #include <iostream>
 #include "Combi5.h"
 #include "knapsack.h"
-#define NN 4
+#include "Auxil.h"
+
+#define ITEM_MAX 18
+#define KNAP_MAX_WEIGHT 300
+
+/*(Вариант 2, 6, 10, 14) упрощенную о рюкзаке (веса предметов и их стоимость сгенерировать случайным образом:
+вместимость рюкзака 300 кг, веса предметов 10 – 300 кг, стоимость предметов 5 – 55 у.е.; количество предметов – 18 шт.);*/
+
 int main()
 {
     setlocale(LC_ALL, "rus");
-    int V = 100,                // вместимость рюкзака              
-        v[] = { 25, 30, 60, 20 },     // размер предмета каждого типа  
-        c[] = { 25, 10, 20, 30 };     // стоимость предмета каждого типа 
-    short m[NN];                // количество предметов каждого типа  {0,1}   
+    int item_weight[ITEM_MAX],         // вес предмета каждого типа
+        item_price[ITEM_MAX];           // стоимость предмета каждого типа  
+    short item_instance[ITEM_MAX];      // количество предметов каждого типа  {0,1}   
 
-    int maxcc = knapsack_s(
+    auxil::start();
+    for (int i = 0; i < ITEM_MAX; i++) {
+        item_weight[i] = (double)auxil::iget(10, 300);
+        item_price[i] = (double)auxil::iget(5, 55);
+    }
 
-        V,   // [in]  вместимость рюкзака 
-        NN,  // [in]  количество типов предметов 
-        v,   // [in]  размер предмета каждого типа  
-        c,   // [in]  стоимость предмета каждого типа     
-        m    // [out] количество предметов каждого типа  
-    );
+    int optimal_weight = knapsack_s(KNAP_MAX_WEIGHT, ITEM_MAX, item_weight, item_price, item_instance);
+
 
     std::cout << std::endl << "-------- Задача о рюкзаке --------- ";
-    std::cout << std::endl << "- количество предметов : " << NN;
-    std::cout << std::endl << "- вместимость рюкзака  : " << V;
-    std::cout << std::endl << "- размеры предметов    : ";
-    for (int i = 0; i < NN; i++) std::cout << v[i] << " ";
-    std::cout << std::endl << "- стоимости предметов  : ";
-    for (int i = 0; i < NN; i++) std::cout << v[i] * c[i] << " ";
-    std::cout << std::endl << "- оптимальная стоимость рюкзака: " << maxcc;
-    std::cout << std::endl << "- вес рюкзака: ";
-    int s = 0; for (int i = 0; i < NN; i++) s += m[i] * v[i];
+    std::cout << std::endl << "- количество предметов(шт) : " << ITEM_MAX;
+    std::cout << std::endl << "- вместимость рюкзака(кг)  : " << KNAP_MAX_WEIGHT;
+
+    std::cout << std::endl << "- размеры предметов(кг)    : ";
+    for (int i = 0; i < ITEM_MAX; i++) std::cout << item_weight[i] << " ";
+    std::cout << std::endl << "- стоимости предметов(y.e.)  : ";
+    for (int i = 0; i < ITEM_MAX; i++) std::cout << item_price[i] << " ";
+    std::cout << std::endl << "- оптимальная стоимость рюкзака(y.e.) : " << optimal_weight;
+    std::cout << std::endl << "- вес рюкзака(кг): ";
+    int s = 0; for (int i = 0; i < ITEM_MAX; i++) s += item_instance[i] * item_weight[i];
     std::cout << s;
     std::cout << std::endl << "- выбраны предметы: ";
-    for (int i = 0; i < NN; i++) std::cout << " " << m[i];
+    for (int i = 0; i < ITEM_MAX; i++) std::cout << " " << item_instance[i];
     std::cout << std::endl << std::endl;
 
     system("pause");

@@ -1,20 +1,20 @@
-#include "Combi3.h"
+#include "Combi.h"
 #include <algorithm>
 #define NINF  ((short)0x8000)
 namespace combi
 {
-    permutation::permutation(short n)        // генератор   перестановок  конструктор (количество элементов исходного множества) 
+    permutation::permutation(short n)
     {
         this->n = n;
         this->sset = new short[n];
         this->dart = new bool[n];
         this->reset();
     };
-    void  permutation::reset()      // сбросить генератор, начать сначала 
+    void  permutation::reset()
     {
         this->getfirst();
     };
-    __int64  permutation::getfirst()         // сформировать первый массив индексов  
+    __int64  permutation::getfirst()
     {
         this->np = 0;
         for (int i = 0; i < this->n; i++)
@@ -23,7 +23,7 @@ namespace combi
         };
         return  (this->n > 0) ? this->np : -1;
     };
-    __int64  permutation::getnext()   // сформировать случайный массив индексов
+    __int64  permutation::getnext()   
     {
         __int64 rc = -1;
         short maxm = NINF, idx = -1;
@@ -50,7 +50,7 @@ namespace combi
         }
         return rc;
     };
-    short permutation::ntx(short i) { return  this->sset[i]; };  // получить i-й элемент масива индексов 
+    short permutation::ntx(short i) { return  this->sset[i]; };
     unsigned __int64 fact(unsigned __int64 x) { return (x == 0) ? 1 : (x * fact(x - 1)); };
-    unsigned __int64 permutation::count() const { return fact(this->n); };   // вычислить общее кол. перестановок
+    unsigned __int64 permutation::count() const { return fact(this->n); };
 }

@@ -1,5 +1,8 @@
 #include <iostream>
 #include "Combi.h"
+
+//генератор подмножеств заданного множества  2^n
+
 int main()
 {
     setlocale(LC_ALL, "rus");
